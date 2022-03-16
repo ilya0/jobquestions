@@ -1,3 +1,5 @@
+/// I've simplified some of the code here, and left some of the more important parts of the functional code to show how it would work in this example
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,16 +8,10 @@
 const loads;   //var to save cookie values from the browser
 
 
-
-
-
 function writeCookie(v) { //function to set the cookie value
   document.cookie = "cookieCounter = " + v;
   console.log(document.cookie);
   }
-
-
-
 
 
 
@@ -33,7 +29,7 @@ function writeCookie(v) { //function to set the cookie value
       c = c.substring(1);
     }
     if (c.indexOf(cookievalue) == 0) {
-      loads = c.substring(cookievalue.length, c.length);
+      loads = c.substring(cookievalue.length, c.length); // save the loads to the var
       return c.substring(cookievalue.length, c.length); // return actual cookievalue
     }
   }
@@ -41,13 +37,8 @@ function writeCookie(v) { //function to set the cookie value
   };
   
 
-
-
-
-  //run this on page start
   function start(){    
-
-    if (loads = 0 || loads > 0){
+    if (loads == 0 || loads > 0){
       loads = loads+1;
     }else{
       writeCookie(0);
